@@ -1,4 +1,3 @@
-OURCE
 
 #include <endian.h>
 #include <errno.h>
@@ -1211,3 +1210,6 @@ int main(void)
 	      syscall(__NR_mmap, 0x21000000ul, 0x1000ul, 0ul, 0x32ul, -1, 0ul);
 	        do_sandbox_none();
 		  return 0;
+
+
+
