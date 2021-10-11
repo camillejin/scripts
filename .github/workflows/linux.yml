@@ -1,8 +1,8 @@
 name: Checking Clean Build
 on:
   push:
-    path:
-      - linux
+    paths:
+      - 'linux'
       
 jobs:
   build:
