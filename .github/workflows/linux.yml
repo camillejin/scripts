@@ -16,8 +16,8 @@ jobs:
         
       - name: Download and unzip
         run: wget https://github.com/camillejin/linux/archive/$(git rev-parse @:./linux).zip
-             unzip linux-$(git rev-parse @:./linux).zip
+             unzip $(git rev-parse @:./linux).zip
         
       - name: Build
         run: ./install-deps.sh
-             ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
+             ./build-linux.sh $(git rev-parse @:./linux) tinyconfig
