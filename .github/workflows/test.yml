@@ -1,16 +1,16 @@
 name: Test
 on:
   push:
-    path:
+    paths:
       - 'test/**/*'
-      
-  jobs:
-    build:
-      runs-on: Ubuntu-20.04
-      
-      steps:
-        - uses: actions/checkout@v2
 
-        - name: Run test
-          run: make -C test
+jobs:
+  build:
+    runs-on: Ubuntu-20.04
+      
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run test
+        run: make -C test
         
