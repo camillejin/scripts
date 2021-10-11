@@ -1,0 +1,25 @@
+name: Checking Clean Build
+on:
+  push:
+    path:
+      - linux
+    url:
+      - git@github.com:camillejin/linux
+      
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - run: echo "The job was automatically triggered by a push event containing the changes in the commit number of the submodule linux"
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Download and unzip
+        run: wget https://github.com/camillejin/linux/archive/${GITHUB_SHA}.zip
+             unzip linux-${GITHUB_SHA}.zip
+        
+      - name: Build
+        run: ./install-deps.sh
+             ./build-linux.sh linux-${GITHUB_SHA} tinyconfig
