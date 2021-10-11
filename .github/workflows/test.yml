@@ -12,5 +12,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run test
-        run: make -C test
+        run: cd /assn/scripts
+             make -C test
         
