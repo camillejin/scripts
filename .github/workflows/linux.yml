@@ -1,10 +1,8 @@
 name: Checking Clean Build
 on:
   push:
-    path:
-      - linux
-    url:
-      - git@github.com:camillejin/linux
+    paths:
+      - 'linux'
       
 jobs:
   build:
@@ -17,9 +15,9 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Download and unzip
-        run: wget https://github.com/camillejin/linux/archive/${GITHUB_SHA}.zip
-             unzip linux-${GITHUB_SHA}.zip
+        run: wget https://github.com/camillejin/linux/archive/$(git rev-parse @:./linux).zip
+             unzip linux-$(git rev-parse @:./linux).zip
         
       - name: Build
         run: ./install-deps.sh
-             ./build-linux.sh linux-${GITHUB_SHA} tinyconfig
+             ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
