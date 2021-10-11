@@ -1,0 +1,16 @@
+name: Test
+on:
+  push:
+    path:
+      - 'test/**/*'
+      
+  jobs:
+    build:
+      runs-on: Ubuntu-20.04
+      
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Run test
+          run: make -C test
+        
