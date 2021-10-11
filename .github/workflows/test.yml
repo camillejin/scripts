@@ -2,7 +2,7 @@ name: Test
 on:
   push:
     paths:
-      - 'test/*'
+      - 'test/**'
 
 jobs:
   build:
@@ -12,6 +12,5 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run test
-        run: cd /assn/scripts
-             make -C test
+        run: make -C test
         
