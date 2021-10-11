@@ -14,10 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Download and unzip
-        run: wget https://github.com/camillejin/linux/archive/$(git rev-parse @:./linux).zip
-             unzip $(git rev-parse @:./linux).zip
+      - name: Download
+        run: wget -O latestCommit.zip https://github.com/camillejin/linux/archive/$(git rev-parse @:./linux).zip
+            
+      - name: Unzip
+        run: unzip -qq latestCommit.zip
         
       - name: Build
         run: ./install-deps.sh
-             ./build-linux.sh $(git rev-parse @:./linux) tinyconfig
+             ./build-linux.sh latestCommit tinyconfig
