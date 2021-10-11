@@ -15,9 +15,9 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Download and unzip
-        run: wget https://github.com/camillejin/linux/archive/${git rev-parse HEAD:linux}.zip
-             unzip linux-${git rev-parse HEAD:linux}.zip
+        run: wget https://github.com/camillejin/linux/archive/$(git rev-parse @:./linux).zip
+             unzip linux-$(git rev-parse @:./linux).zip
         
       - name: Build
         run: ./install-deps.sh
-             ./build-linux.sh linux-${git rev-parse HEAD:linux} tinyconfig
+             ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
