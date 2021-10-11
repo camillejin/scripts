@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run test
+      - name: Compile test
         run: make -C test
         
