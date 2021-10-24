@@ -23,7 +23,10 @@ jobs:
       - name: Build
         run: ./install-deps.sh
              ./build-linux.sh $(git rev-parse @:./team_linux)
-             
+             ./create-image.sh
+             ./copy-files.sh
+             ./run-qemu.sh
+             ./run_test/test/test.exe
 
 
              
