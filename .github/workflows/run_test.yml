@@ -28,7 +28,7 @@ jobs:
              ./run-qemu.sh
              
       - name: Run Test
-             ./run_test/test/test.exe
+        run: ./run_test/test/test.exe
 
 
              
