@@ -2,3 +2,6 @@
 	path = linux
 	url = git@github.com:camillejin/linux
 	branch = csi2115-f21
+[submodule "team_linux"]
+	path = team_linux
+	url = https://github.com/OSS-SSH/linux
