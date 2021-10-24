@@ -11,9 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: run test
+      - name: make file
         run: make -C run_test
-             ./copy-files.sh
+        
+      - name: run test
+        run: ./copy-files.sh
              ./run-qemu.sh
              ./run_test/test.exe
              
