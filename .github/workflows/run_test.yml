@@ -2,7 +2,7 @@ name: Run Test
 on:
   push:
     paths:
-      - 'run_test/*'
+      - 'run_test/**'
 
 jobs:
   build:
