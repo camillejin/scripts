@@ -26,6 +26,8 @@ jobs:
              ./create-image.sh
              ./copy-files.sh
              ./run-qemu.sh
+             
+      - name: Run Test
              ./run_test/test/test.exe
 
 
