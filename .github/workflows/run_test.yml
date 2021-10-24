@@ -15,5 +15,5 @@ jobs:
         run: make -C run_test
              ./copy-files.sh
              ./run-qemu.sh
-             ./run_test/*.exe
+             ./run_test/test.exe
              
