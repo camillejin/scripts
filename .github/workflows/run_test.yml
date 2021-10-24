@@ -7,15 +7,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-      
+    
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: make file
         run: make -C run_test
         
-      - name: run test
-        run: ./copy-files.sh
-             ./run-qemu.sh
-             ./run_test/test.exe
+      - name: Download
+        run: wget https://github.com/OSS-SSH/linux/archive/$(git rev-parse @:./team_linux).zip
+            
+      - name: Unzip
+        run: unzip -qq $(git rev-parse @:./team_linux).zip
+        
+      - name: Build
+        run: ./install-deps.sh
+             ./build-linux.sh $(git rev-parse @:./team_linux)
+             
+
+
              
