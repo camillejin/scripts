@@ -1,0 +1,25 @@
+name: Checking Clean Build
+on:
+  push:
+    paths:
+      - 'team_linux'
+      
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - run: echo "The job was automatically triggered by a push event containing the changes in the commit number of the submodule team_linux"
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Download
+        run: wget https://github.com/oss-ssh/linux/archive/$(git rev-parse @:./team_linux).zip
+            
+      - name: Unzip
+        run: unzip -qq $(git rev-parse @:./team_linux).zip
+        
+      - name: Build
+        run: ./install-deps.sh
+             ./build-linux.sh $(git rev-parse @:./team_linux)
