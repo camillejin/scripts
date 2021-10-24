@@ -1,4 +1,4 @@
-name: Checking Clean Build
+name: Checking Clean Build of Team Linux
 on:
   push:
     paths:
