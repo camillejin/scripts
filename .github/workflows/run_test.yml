@@ -12,7 +12,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: run test
-        run: ./copy-files.sh
+        run: make -C run_test
+             ./copy-files.sh
              ./run-qemu.sh
              ./run_test/*.exe
              
