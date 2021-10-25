@@ -10,10 +10,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      
-      - name: make file
-        run: make -C run_test
-        
+
       - name: Download
         run: wget https://github.com/OSS-SSH/linux/archive/$(git rev-parse @:./team_linux).zip
             
